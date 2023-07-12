@@ -1,0 +1,55 @@
+Домашнее значение:
+
+Задача 40: Работать с файлом california_housing_train.csv, который находится в папке
+sample_data. Определить среднюю стоимость дома, где кол-во людей от 0 до 500 (population)
+
+
+# Библиотека для работы с табличными данными
+import pandas as pd
+
+# Прочтем файл .csv с помощью библиотеки pandas
+df = pd.read_csv('sample_data/california_housing_train.csv')
+
+# Определить среднюю стоимость дома, где кол-во людей от 0 до 500 (population)
+df1.loc[df1['population'] < 500, ['median_house_value']]
+
+Задача 42: Узнать какая максимальная households в зоне минимального значения population
+df1.loc[df1['households'] == df1['households'].max(), ['population']].min()
+
+Самостоятельная практика №1 (Семинар 11):
+
+# Прочесть с помощью pandas файл california_housing_test.csv,
+# который находится в папке sample_data
+df1 = pd.read_csv('sample_data/california_housing_test.csv')
+
+#Посмотреть сколько в нем строк и столбцов
+df1.shape
+
+#(Доп) Определить какой тип данных имеют столбцы
+df1.dtypes
+
+#(Доп) Проверить есть ли в файле пустые значени
+df1.isnull().sum()
+
+Самостоятельная практика №2:
+
+#Показать median_house_value где median_income < 2
+df1.loc[df1['median_income'] < 2, ['median_house_value']]
+
+#(Доп) Показать данные в первых 2 столбцах
+df1[['latitude', 'longitude']]
+
+#(Доп) Выбрать данные где housing_median_age < 20 и median_house_value > 70000
+df1[(df1['housing_median_age'] < 20) & (df1['median_house_value'] > 70000)]
+
+
+Самостоятельная практика №3:
+
+#Определить какое максимальное и минимальное значение median_house_value
+print(df1['median_house_value'].max()), print(df1['median_house_value'].min())
+
+#(Доп) Показать максимальное median_house_value, где median_income = 3.1250
+df1.loc[df1['median_income'] == 3.1250, ['median_house_value']].max()
+
+#(Доп) Узнать какая максимальная population в зоне минимального значения median_house_value
+df1.loc[df1['median_house_value'] == df1['median_house_value'].min(), ['population']].max()
